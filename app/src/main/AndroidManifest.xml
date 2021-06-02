@@ -21,7 +21,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".TextureNewActivity"
-            android:theme="@style/Theme.TexturePlayerAppFull"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 

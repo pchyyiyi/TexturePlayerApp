@@ -15,7 +15,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatTextView;
 
@@ -27,14 +26,14 @@ import com.pchyyiyi.textureplay.widget.NiceTextureView;
 import java.text.DecimalFormat;
 
 
-public class TextureNewActivity extends AppCompatActivity {
+public class TextureNewActivity extends BaseActivity {
 
     private static final String TAG = "TextureNewActivity";
 
     public static final String BUNDLE_KEY_ADVERTINFO = "ADVERTINFO";
     public static final String BUNDLE_KEY_AMOUNT = "AMOUNT";
 
-    Activity mContext;
+    Activity mActivity;
 
     /**
      * 关闭
@@ -107,7 +106,10 @@ public class TextureNewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_texture_new);
-        mContext = this;
+//        setSBarHalfTransparent();
+        setSBarFullTransparent();
+//        setFitSystemWindow(true);
+        mActivity = this;
         assignViews();
         initData();
     }
@@ -263,7 +265,11 @@ public class TextureNewActivity extends AppCompatActivity {
         showTextureView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mContext.isFinishing()){
+                if(mActivity==null){
+                    return;
+                }
+
+                if(mActivity.isFinishing()){
                     return;
                 }
 
@@ -305,7 +311,11 @@ public class TextureNewActivity extends AppCompatActivity {
 
                 mMediaPlayer.setSurface(mSurface);
                 mMediaPlayer.reset();
-                mMediaPlayer.setDataSource(mContext, Uri.parse(videoUrl));
+                try {
+                    mMediaPlayer.setDataSource(videoUrl);
+                }catch (Exception e){
+
+                }
                 mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                     @Override
                     public void onPrepared(MediaPlayer arg0) {

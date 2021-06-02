@@ -8,12 +8,22 @@ import android.view.View;
 import com.pchyyiyi.textureplay.model.UserAdvertInfo;
 import com.pchyyiyi.textureplay.util.AndroidUtil;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        setSBarHalfTransparent();
+//        setSBarFullTransparent();
+//        setFitSystemWindow(true);
+//        setSBarHalfTransparentNonOverlap(R.color.red);
+        //设置出来是灰色
+//        setSBarHalfTransparentNonOverlap(R.color.halftransparent);
+        //设置出来是白色
+//        setSBarHalfTransparentNonOverlap(R.color.transparent);
+        //和layout背景色一样，类似支付宝的
+        setSBarHalfTransparentNonOverlap(R.color.purple_200);
     }
 
     public void TextureNewActivityView1(View view){
@@ -47,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
         userAdvertInfo5.setAclass(2);
         userAdvertInfo5.setAdContent("a啊啊啊啊啊啊啊啊啊啊滴滴答答滴滴答答的发反反复复方法");
         userAdvertInfo5.setPicUrl("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4067468447,1451150120&fm=11&gp=0.jpg");
-        userAdvertInfo5.setVideoUrl("http://vfx.mtime.cn/Video/2019/03/19/mp4/190319212559089721.mp4");
+//        userAdvertInfo5.setVideoUrl("http://vfx.mtime.cn/Video/2019/03/19/mp4/190319212559089721.mp4");
+
 
         Bundle bundle1 = new Bundle();
         bundle1.putSerializable(TextureNewActivity.BUNDLE_KEY_ADVERTINFO, userAdvertInfo5);
